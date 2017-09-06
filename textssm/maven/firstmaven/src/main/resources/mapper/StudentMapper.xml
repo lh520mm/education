@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 输入映射ParameterType，输出映射 resultmap 、resulttype ，返回的resultmap=“resultmap的id” -->
+
+<mapper namespace="dao.StudentMapper">
+    <resultMap id="BaseMap" type="model.Student">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="sex" property="sex" jdbcType="VARCHAR"/>
+        <result column="age" property="age" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="getStudentAll" resultMap="BaseMap">
+		select * from student
+	</select>
+    <select id="studentCount" resultType="int">
+    SELECT  count(id) FROM  student
+    </select>
+
+    <select id="showSchool" resultType="java.lang.String">
+        SELECT
+    </select>
+
+    <select id="login" parameterMap="java.util.Map" resultType="int">
+        SELECT  * FROM  USER  where user .name=${username} and user.password=${password}
+
+    </select>
+    <!--  <select id="count" parametertype="int">
+      SELECT  count(id) from student
+  </select>-->
+</mapper>

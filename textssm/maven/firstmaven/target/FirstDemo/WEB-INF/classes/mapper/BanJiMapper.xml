@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 输入映射ParameterType，输出映射 resultmap 、resulttype ，返回的resultmap=“resultmap的id” -->
+
+<mapper namespace="dao.BanJiMapper">
+    <resultMap id="BaseMap" type="model.BanJi">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="num" property="num" jdbcType="VARCHAR"/>
+
+    </resultMap>
+
+    <select id="getStudentAll" resultMap="BaseMap" >
+		select * from student
+	</select>
+
+  <!--  <select id="count" parametertype="int">
+	SELECT  count(id) from student
+</select>-->
+</mapper>
